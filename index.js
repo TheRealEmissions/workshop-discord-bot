@@ -74,6 +74,7 @@ client.modules = modules;
 client.clientOptions = clientOptions;
 client.settings = settings;
 client.commandHandler = cmdHandler;
+client.dbModels = dbModels;
 
 /*
 LOGIN
