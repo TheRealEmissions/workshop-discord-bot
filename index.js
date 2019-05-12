@@ -30,7 +30,8 @@ const dbModels = {
     userProfiles: require(`./models/userProfiles.js`)
 }
 const functions = {
-    saveDB: require(`./functions/saveDB.js`)
+    saveDB: require(`./functions/saveDB.js`),
+    chance: require(`./functions/chance.js`)
 }
 
 /*
@@ -78,6 +79,7 @@ client.clientOptions = clientOptions;
 client.settings = settings;
 client.commandHandler = cmdHandler;
 client.dbModels = dbModels;
+client.functions = functions;
 
 /*
 LOGIN
