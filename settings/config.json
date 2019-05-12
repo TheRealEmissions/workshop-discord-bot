@@ -1,3 +1,6 @@
 {
+    "database": {
+        "url": "mongodb://localhost/the_workshop"
+    },
     "prefix": "-"
 }
