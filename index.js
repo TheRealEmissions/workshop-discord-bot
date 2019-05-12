@@ -24,6 +24,11 @@ const settings = {
     auth: require(`./settings/auth.json`),
     config: require(`./settings/config.json`)
 }
+const dbModels = {
+    process: require(`./models/process.js`),
+    commissions: require(`./models/commissions.js`),
+    userProfiles: require(`./models/userProfiles.js`)
+}
 
 /*
 DATABASE
@@ -60,3 +65,18 @@ let cmdHandler = new CommandHandler({
     folder: __dirname + `/commands/`,
     prefix: [settings.config.prefix]
 });
+
+/*
+BINDINGS
+*/
+
+client.modules = modules;
+client.clientOptions = clientOptions;
+client.settings = settings;
+client.commandHandler = cmdHandler;
+
+/*
+LOGIN
+*/
+
+client.login(settings.auth.token);
