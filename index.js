@@ -29,6 +29,9 @@ const dbModels = {
     commissions: require(`./models/commissions.js`),
     userProfiles: require(`./models/userProfiles.js`)
 }
+const functions = {
+    saveDB: require(`./functions/saveDB.js`)
+}
 
 /*
 DATABASE
