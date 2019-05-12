@@ -31,7 +31,8 @@ const dbModels = {
 }
 const functions = {
     saveDB: require(`./functions/saveDB.js`),
-    chance: require(`./functions/chance.js`)
+    chance: require(`./functions/chance.js`),
+    randomInt: require(`./functions/randomInt.js`)
 }
 
 /*
