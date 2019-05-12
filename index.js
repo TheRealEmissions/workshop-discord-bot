@@ -24,3 +24,39 @@ const settings = {
     auth: require(`./settings/auth.json`),
     config: require(`./settings/config.json`)
 }
+
+/*
+DATABASE
+*/
+
+modules.mongoose.connect(settings.config.database.url, {
+    useNewUrlParser: true
+});
+
+/*
+HANDLERS
+*/
+
+modules.fs.readdir(`./events/`, (err, files) => {
+    if (err) return console.error(err);
+    if (!files) {
+        return;
+    } else {
+        files.forEach(file => {
+            if (!file.endsWith(".js")) return;
+            let event = require(`./events/${file}`);
+            let eventName = file.split(".")[0];
+            client.on(eventName, event.bind(null, client));
+            delete require.cache[require.resolve(`./events/${file}`)];
+            console.log(`Loaded event ${file}`);
+        });
+    }
+});
+
+const {
+    CommandHandler
+} = require(`djs-commands`);
+let cmdHandler = new CommandHandler({
+    folder: __dirname + `/commands/`,
+    prefix: [settings.config.prefix]
+});
